@@ -36,7 +36,7 @@ const addMemo = async (ctx: Context,config: Config,content: any,visibility: stri
 }
 
 let startContinuousInput = false
-let memoContextFianl = ""
+let memoContextFianl : string
 let memoCreatRes : HTTP.Response<any>
 let memoVisibility = VISIBILITY.PRIVATE
 
@@ -63,7 +63,7 @@ export function apply(ctx: Context, config: Config) {
 
     ctx.middleware(async (session, next) => {
         if (startContinuousInput && session.content !== "emm") {
-            memoContextFianl = `${memoContextFianl}\n${session.content}`
+            memoContextFianl = memoContextFianl ? `${memoContextFianl}\n${session.content}` : session.content
         } else {
             return next()
         }
