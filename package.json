@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-memos-connector",
   "description": "连接并且操作memos服务器的数据",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -9,14 +9,17 @@
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
+  "homepage": "https://github.com/ancientElement/koishi-plugin-memos-connector",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ancientElement/koishi-plugin-memos-connector"
+  },
   "keywords": [
-    "chatbot",
+    "memos",
     "koishi",
     "plugin"
   ],
-  "devDependencies": {},
   "peerDependencies": {
-    "koishi": "^4.18.3"
+    "koishi": "^4.18.4"
   }
 }
