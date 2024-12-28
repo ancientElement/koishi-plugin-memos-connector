@@ -51,10 +51,10 @@ export function apply(ctx: Context, config: Config) {
         } else {
             await session.send("请输入要创建的memo内容\n使用emm作为最后一条消息")
             startContinuousInput = true
-            let context = await session.prompt(1)
+            let context = await session.prompt(60000)
             let contextFianl = context
-            while (context != "emm"){
-                context = await session.prompt(1)
+            while (context && context != "emm"){
+                context = await session.prompt(60000)
                 contextFianl = `${contextFianl}\n${context}`
             }
             if (!contextFianl) return "没有输入内容"
