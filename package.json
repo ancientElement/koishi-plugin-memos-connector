@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-memos-connector",
   "description": "连接并且操作memos服务器的数据",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [

@@ -1,6 +1,6 @@
 import { Context, HTTP, Schema } from 'koishi'
 
-export const name = 'qq-memos'
+export const name = 'memos-connector'
 
 export interface Config {
     memos_sverver?: string
@@ -13,14 +13,14 @@ export const Config: Schema<Config> = Schema.object({
 })
 
 
-const VISIBILITY = {
+export const VISIBILITY = {
     VISIBILITY_UNSPECIFIED: 'VISIBILITY_UNSPECIFIED',
     PRIVATE: 'PRIVATE',
     PROTECTED: 'PROTECTED',
     PUBLIC: 'PUBLIC'
 }
 
-const addMemo = async (ctx: Context,config: Config,content: any,visibility: string = VISIBILITY.PRIVATE) => {
+export const addMemo = async (ctx: Context,config: Config,content: any,visibility: string = VISIBILITY.PRIVATE) => {
     const url = `${config.memos_sverver}/api/v1/memos`
     return await ctx.http('POST',url,{
         data:JSON.stringify({
@@ -35,10 +35,10 @@ const addMemo = async (ctx: Context,config: Config,content: any,visibility: stri
     })
 }
 
-let startContinuousInput = false
-let memoContextFianl : string
-let memoCreatRes : HTTP.Response<any>
-let memoVisibility = VISIBILITY.PRIVATE
+export let startContinuousInput = false
+export let memoContextFianl : string
+export let memoCreatRes : HTTP.Response<any>
+export let memoVisibility = VISIBILITY.PRIVATE
 
 export function apply(ctx: Context, config: Config) {
     // write your plugin here
